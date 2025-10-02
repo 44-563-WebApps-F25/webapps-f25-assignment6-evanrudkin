@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+ <html>
+  <head>
+    <title>Cartoon game by Evan Rudkin</title>
+  </head>
+  <body>
+    <h1>Cartoon game by Evan Rudkin</h1>
+  </body>
+</html>
+<body>
+
+<h2>Guess the Toon</h2>
+    <form>
+      <label for="secret">That’s all folks: </label>
+      <input type="password" id="secret" value="Porky Pig"><br><br>
+
+      <label for="guess">Guess the toon: </label>
+      <input type="text" id="guess"><br><br>
+
+      <input type="button" onclick="checkToon()" value="Check the guess">
+    </form>
+
+    <p id="results">Correct: 0 | Wrong: 0</p>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+      let darn = 0;
+      let yahoo = 0;
+
+      function checkToon() {
+        const secret = document.getElementById("secret").value;
+        const guess = document.getElementById("guess").value;
+
+        if (secret === guess) {
+          yahoo++;
+          alert("You got it");
+        } else {
+          darn++;
+          alert("Missed me");
+        }
+
+        document.getElementById("results").innerHTML =
+          `Correct: ${yahoo} | Wrong: ${darn}`;
+      }
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
