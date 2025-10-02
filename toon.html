@@ -23,6 +23,32 @@
 
     <p id="results">Correct: 0 | Wrong: 0</p>
 
+    <div>
+      <img id="plantPic" src="rose.jpg" width="150" height="150" onclick="updatePic()">
+    </div>
+
+    <script>
+      let usePic = 1;
+
+      function updatePic() {
+        const img = document.getElementById("plantPic");
+        switch (usePic) {
+          case 1:
+            img.src = "rose.jpg";
+            usePic = 2;
+            break;
+          case 2:
+            img.src = "ivy.jpg";
+            usePic = 3;
+            break;
+          case 3:
+            img.src = "daffodil.jpg";
+            usePic = 1;
+            break;
+        }
+      }
+    </script>
+
 <h2>Getting input</h2>
 
 <form>
