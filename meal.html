@@ -15,6 +15,16 @@
     </form>
 
     <p id="mealResults">Meal object will show here.</p>
+    <h2>Update meal with extras</h2>
+<form>
+  <label>Enter drink: </label>
+  <input type="text" id="drink" value="Wine"><br><br>
+
+  <label>Enter starter: </label>
+  <input type="text" id="starter"><br><br>
+
+  <input type="button" onclick="updateMeal()" value="Update the meal">
+</form>
 
     <script>
       let my_meal = {};
@@ -24,6 +34,16 @@
         my_meal.salad = document.getElementById("serveSalad").checked;
         my_meal.stew = document.getElementById("makeStew").checked;
         my_meal.chocolate = document.getElementById("chocDessert").checked;
+
+        document.getElementById("mealResults").innerHTML = JSON.stringify(my_meal);
+      }
+
+      function updateMeal() {
+        const drinkVal = document.getElementById("drink").value;
+        const starterVal = document.getElementById("starter").value;
+
+        my_meal["drink"] = drinkVal;
+        my_meal["starter"] = starterVal;
 
         document.getElementById("mealResults").innerHTML = JSON.stringify(my_meal);
       }
