@@ -40,5 +40,43 @@
         document.getElementById("totals").innerHTML = "Totals are: " + totalCosts;
       }
     </script>
+
+    <h2>Choose an operation</h2>
+<form>
+  <input type="radio" name="mathOp" value="times" onclick="chooseOp()"> Product<br>
+  <input type="radio" name="mathOp" value="add" onclick="chooseOp()"> Sum<br>
+  <input type="radio" name="mathOp" value="mod" onclick="chooseOp()"> Mod<br>
+</form>
+
+<p id="opResult">Operation result will appear here.</p>
+
+<script>
+  function chooseOp() {
+    const price = Number(document.getElementById("standardCharge").value);
+    const breakAt = Number(document.getElementById("discountLength").value);
+    const ops = document.getElementsByName("mathOp");
+    let chosen = "";
+
+    for (let i = 0; i < ops.length; i++) {
+      if (ops[i].checked) chosen = ops[i].value;
+    }
+
+    let resultText = "";
+    switch (chosen) {
+      case "times":
+        resultText = `${price} × ${breakAt} = ${price * breakAt}`;
+        break;
+      case "add":
+        resultText = `${price} + ${breakAt} = ${price + breakAt}`;
+        break;
+      case "mod":
+        resultText = `${price} % ${breakAt} = ${price % breakAt}`;
+        break;
+    }
+
+    document.getElementById("opResult").innerHTML = resultText;
+  }
+</script>
+
   </body>
 </html>
