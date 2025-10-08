@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Evan Rudkin plans a meal</title>
+  </head>
+  <body>
+    <h1>Evan Rudkin plans a meal</h1>
+
+    <form>
+      <label><input type="checkbox" id="serveSalad" value="True"> Serve salad</label><br>
+      <label><input type="checkbox" id="makeStew" value="True"> Make stew</label><br>
+      <label><input type="checkbox" id="chocDessert" value="False"> Chocolate for dessert</label><br><br>
+
+      <input type="button" onclick="choices()" value="Meal Choices">
+    </form>
+
+    <p id="mealResults">Meal object will show here.</p>
+
+    <script>
+      let my_meal = {};
+
+      function choices() {
+        my_meal = {};
+        my_meal.salad = document.getElementById("serveSalad").checked;
+        my_meal.stew = document.getElementById("makeStew").checked;
+        my_meal.chocolate = document.getElementById("chocDessert").checked;
+
+        document.getElementById("mealResults").innerHTML = JSON.stringify(my_meal);
+      }
+    </script>
+  </body>
+</html>
